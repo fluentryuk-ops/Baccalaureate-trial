@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>B2 English — Free Demo (Unit 1 + Chapter 1)</title>
+<title>B2 English | Free Demo (Unit 1 + Chapter 1)</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔓</text></svg>">
 <style>
 /* Lexend (SIL Open Font License 1.1, The Lexend Project Authors), built in so the file looks the same offline */
@@ -2074,16 +2074,12 @@ function render(){ renderView(); view.insertAdjacentHTML("beforeend", BRAND_FOOT
 /* ---------- Demo mode: Unit 1 + Story Chapter 1 are open; everything else shows a lock screen. ---------- */
 const DEMO = {
   purchaseUrl: "", // TODO: add the Shopify sales page link when it is ready. Leave empty to show "Coming soon".
-  whatsappUrl: "https://wa.me/", // TODO: replace with the WhatsApp group link
+  whatsappUrl: "https://chat.whatsapp.com/BgwgDb9F4rVFhNsswZcgG3?s=cl&p=i&mlu=0",
 };
 function buyBtn(full){
-  return DEMO.purchaseUrl
-    ? `<a class="btn primary" href="${DEMO.purchaseUrl}" target="_blank" rel="noopener">Buy Full Baccalaureate Part 1</a>`
-    : `<button type="button" class="btn primary" disabled title="The purchase link is not live yet">Buy Full Baccalaureate Part 1 <small>(link coming soon)</small></button>`;
+  return `<a class="btn primary" href="${DEMO.whatsappUrl}" target="_blank" rel="noopener">\u{1F4AC} Contact via WhatsApp for the full version</a>`;
 }
-function waBtn(){
-  return `<a class="btn" href="${DEMO.whatsappUrl}" target="_blank" rel="noopener">💬 Ask a question on WhatsApp</a>`;
-}
+function waBtn(){ return ""; }
 function lockScreen(what){
   return `<div class="lock-card"><img class="lock-logo" src="${B2_LOGO_SRC}" alt="B2 English">
     <h2>This part is locked</h2>
@@ -2093,7 +2089,7 @@ function lockScreen(what){
 function demoBanner(){
   return `<div class="demo-banner"><span class="demo-badge">FREE PREVIEW</span>
     <h2>Try Unit 1 and Chapter 1 free</h2>
-    <p>Unit 1 free &middot; Units 2–5, the Review, Tests and Extra Practice unlock with purchase.</p>
+    <p>Unit 1 free &middot; Units 2–5, the Review, Tests and Extra Practice unlock with the full version. Message us on WhatsApp to buy (InstaPay accepted).</p>
     <ul class="demo-list">
       <li>5 units, each with 8 skills and instant marking</li>
       <li>Story reader with 5 chapters and comprehension marking</li>
@@ -2312,7 +2308,7 @@ function viewPracticeUnit(n, li){
 
 function viewCheckHome(){
   header("Test", "End-of-unit tests", false);
-  view.innerHTML = `<p class="lead">Unit 1's test is free to try. Units 2 to 5 unlock with purchase.</p>` +
+  view.innerHTML = `<p class="lead">Unit 1's test is free to try. Units 2 to 5 unlock with the full version. Message us on WhatsApp to buy (InstaPay accepted).</p>` +
     QUIZ.map(u => { const s = setScore(u.id), locked = u.n !== 1;
       return `<button type="button" class="list-btn ${locked ? "locked" : ""}" data-go-check="${u.n}"><span class="num">${locked ? "🔒" : u.n}</span><span class="t"><b>${esc(u.title)}</b><small>${locked ? "Buy to unlock" : "20 marks + writing task"}</small></span><span class="markpill">${s.finished ? s.got + " / " + s.total : ""}</span></button>`; }).join("");
 }
